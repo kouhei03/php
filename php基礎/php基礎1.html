@@ -140,11 +140,82 @@ echo $y;
 </body>
 </html>
 
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
+<!--PHP変数 PHP変数のルール：
+    変数は$記号で始まり、その後に変数の名前が続きます
+    変数名は文字またはアンダースコア文字で始まる必要があります
+    変数名を数字で始めることはできません
+    変数名には、英数字とアンダースコア（Az、0-9、および_）のみを含めることができます。
+    変数名は大文字と小文字が区別されます（$ageと $AGE二つの異なる変数です）
+ -->
+
+<!-- 出力変数
+    PHPechoステートメントは、データを画面に出力するためによく使用されます。
+    次の例は、テキストと変数を出力する方法を示しています。
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$txt = "W3Schools.com";
+echo "I love $txt!";
+?>
+
+</body>
+</html>
+
+<!--次の例では、上記の例と同じ出力が生成されます。 -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$txt = "W3Schools.com";
+echo "I love " . $txt . "!";
+?>
+
+</body>
+</html>
+
+<!--次の例では、2つの変数の合計を出力します -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$x = 5;
+$y = 4;
+echo $x + $y;
+?>
+
+</body>
+</html>
+
+
+<!-- グローバルおよびローカルスコープ
+    関数の外部で宣言された変数にはグローバルスコープがあり、
+    関数の外部でのみアクセスできます。
+グローバルスコープの変数：-->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$x = 5; // global scope
+ 
+function myTest() {
+  // using x inside this function will generate an error
+  echo "<p>Variable x inside function is: $x</p>";
+} 
+myTest();
+
+echo "<p>Variable x outside function is: $x</p>";
+?>
+
+</body>
+</html>
+
 <!-- -->
 <!-- -->
 <!-- -->
