@@ -1,0 +1,340 @@
+
+
+<!-- PHP Float
+    浮動小数点（浮動小数点数）は、小数点付きの数値または指数形式の数値です。
+    次の例では、$ xはfloatです。PHPのvar_dump（）関数は、データ型と値を返します。
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php  
+$x = 10.365;
+var_dump($x);
+?>  
+
+</body>
+</html>
+
+<!-- PHP配列
+    配列は、1つの変数に複数の値を格納します。
+次の例では、$ carsは配列です。PHPのvar_dump（）関数は、データ型と値を返します。
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php  
+$cars = array("Volvo","BMW","Toyota");
+var_dump($cars);
+?>  
+
+</body>
+</html>
+
+<!--
+  クラスとオブジェクトは、オブジェクト指向プログラミングの2つの主要な側面です。
+クラスはオブジェクトのテンプレートであり、オブジェクトはクラスのインスタンスです。
+
+個々のオブジェクトが作成されると、それらはクラスからすべてのプロパティと動作を継承しますが、
+各オブジェクトはプロパティに対して異なる値を持ちます。
+Carという名前のクラスがあるとしましょう。車には、model、colorなどのプロパティを
+含めることができます。$ model、$ colorなどの変数を定義して、
+これらのプロパティの値を保持できます。
+
+個々のオブジェクト（Volvo、BMW、Toyotaなど）が作成されると、
+それらはクラスからすべてのプロパティと動作を継承しますが、
+各オブジェクトのプロパティの値は異なります。
+
+__construct（）関数を作成する場合、クラスからオブジェクトを作成すると、
+PHPはこの関数を自動的に呼び出します。
+ -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+class Car {
+  public $color;
+  public $model;
+  public function __construct($color, $model) {
+    $this->color = $color;
+    $this->model = $model;
+  }
+  public function message() {
+    return "My car is a " . $this->color . " " . $this->model . "!";
+  }
+}
+
+$myCar = new Car("black", "Volvo");
+echo $myCar -> message();
+echo "<br>";
+$myCar = new Car("red", "Toyota");
+echo $myCar -> message();
+?>
+
+</body>
+</html>
+
+<!--PHPのNULL値
+  Nullは、NULLという1つの値のみを持つことができる特別なデータ型です。
+  データ型NULLの変数は、値が割り当てられていない変数です。
+
+  ヒント：変数が値なしで作成された場合、その変数には自動的にNULLの値が割り当てられます。
+  値をNULLに設定することにより、変数を空にすることもできます。
+ -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$x = "Hello world!";
+$x = null;
+var_dump($x);
+?>
+
+</body>
+</html>
+
+<!-- PHP文字列関数
+  PHPstrlen()関数は、文字列の長さを返します。
+  文字列「Helloworld！」の長さを返します。
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+echo strlen("Hello world!");
+?> 
+ 
+</body>
+</html>
+
+<!-- str_word_count（）-文字列内の単語をカウントします
+  PHPstr_word_count()関数は、文字列内の単語の数をカウントします。 
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+echo str_word_count("Hello world!");
+?> 
+ 
+</body>
+</html>
+
+<!-- strrev（）-文字列を反転します
+  PHPstrrev()関数は文字列を逆にします。
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+echo strrev("Hello world!");
+?> 
+ 
+</body>
+</html>
+
+<!--strpos（）-文字列内のテキストを検索します
+  PHPstrpos()関数は、文字列内の特定のテキストを検索します。
+  一致が見つかった場合、関数は最初の一致の文字位置を返します。
+  一致するものが見つからない場合は、FALSEを返します。
+ -->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+echo strpos("Hello world!", "world");
+?> 
+ 
+</body>
+</html>
+
+<!--str_replace（）-文字列内のテキストを置き換えます
+  PHPstr_replace()関数は、文字列内の一部の文字を他の一部の文字に置き換えます。
+ -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+echo str_replace("world", "Dolly", "Hello world!");
+?> 
+ 
+</body>
+</html>
+
+<!--PHP番号
+    PHPについて注意すべきことの1つは、自動データ型変換を提供することです。
+    したがって、変数に整数値を割り当てると、その変数の型は自動的に整数になります。次に、同じ変数に文字列を割り当てると、タイプが文字列に変わります。
+    この自動変換により、コードが破損する場合があります。
+ -->
+
+<!--PHP整数
+  2、256、-256、10358、-179567はすべて整数です。
+
+整数は、小数部のない数値です。
+
+整数データ型は、32ビットシステムでは-2147483648〜2147483647、64ビットシステムでは-9223372036854775808〜9223372036854775807の10進数ではありません。これより大きい（または小さい）値は、整数の制限を超えているため、floatとして格納されます。
+
+注：もう1つ知っておくべき重要なことは、4 * 2.5が10であっても、オペランドの1つがfloat（2.5）であるため、結果はfloatとして格納されることです。
+
+整数の規則は次のとおりです。
+
+整数には少なくとも1桁の数字が必要です
+整数は小数点を持ってはいけません
+整数は正または負のいずれかになります
+整数は、10進数（10ベース）、16進数（16ベース-接頭辞0x）、または8進数（8ベース-接頭辞0）の3つの形式で指定できます。
+PHPには、整数用に次の定義済み定数があります。
+
+PHP_INT_MAX-サポートされている最大の整数
+PHP_INT_MIN-サポートされている最小の整数
+PHP_INT_SIZE-整数のサイズ（バイト単位）
+PHPには、変数の型が整数であるかどうかをチェックするための次の関数があります。
+
+is_int（）
+is_integer（）-is_int（）のエイリアス
+is_long（）-is_int（）のエイリアス
+ -->
+
+<!--変数の型が整数かどうかを確認します。 -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+// Check if the type of a variable is integer   
+$x = 5985;
+var_dump(is_int($x));
+
+echo "<br>";
+
+// Check again... 
+$x = 59.85;
+var_dump(is_int($x));
+?>  
+
+</body>
+</html>
+
+<!--PHPフロート
+  浮動小数点数は、小数点付きの数値または指数形式の数値です。
+
+2.0、256.4、10.358、7.64E + 5、5.56E-5はすべてフロートです。
+
+floatデータ型は通常、最大1.7976931348623E + 308（プラットフォームに依存）の値を格納でき、最大精度は14桁です。
+
+PHPには、float用に次の定義済み定数があります（PHP 7.2以降）。
+
+PHP_FLOAT_MAX-表現可能な最大の浮動小数点数
+PHP_FLOAT_MIN-表現可能な最小の正の浮動小数点数
+-PHP_FLOAT_MAX-表現可能な最小の負の浮動小数点数
+PHP_FLOAT_DIG-精度を損なうことなく浮動小数点数に丸めて戻すことができる小数点以下の桁数
+PHP_FLOAT_EPSILON-表現可能な最小の正の数xであるため、x + 1.0！= 1.0
+PHPには、変数の型がfloatであるかどうかをチェックするための次の関数があります。
+
+is_float（）
+is_double（）-is_float（）のエイリアス
+ -->
+ <!DOCTYPE html>
+ <html>
+ <body>
+ 
+ <?php
+ // Check if the type of a variable is float 
+ $x = 10.365;
+ var_dump(is_float($x));
+ ?>  
+ 
+ </body>
+ </html>
+
+ 
+<!-- PHP Infinity
+  PHP_FLOAT_MAXより大きい数値は、無限と見なされます。
+  PHPには、数値が有限か無限かをチェックするための次の関数があります。
+
+is_finite（）
+is_infinite（）
+ただし、PHPのvar_dump（）関数はデータ型と値を返します。
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+// Check if a numeric value is finite or infinite 
+$x = 1.9e411;
+var_dump($x);
+?>  
+
+</body>
+</html>
+
+<!--PHP数値文字列
+  PHPのis_numeric（）関数を使用して、変数が数値であるかどうかを確認できます。
+  この関数は、変数が数値または数値文字列の場合はtrueを返し、それ以外の場合はfalseを返します。
+ -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+// Check if the variable is numeric   
+$x = 5985;
+var_dump(is_numeric($x));
+
+echo "<br>";
+
+$x = "5985";
+var_dump(is_numeric($x));
+
+echo "<br>";
+
+$x = "59.85" + 100;
+var_dump(is_numeric($x));
+
+echo "<br>";
+
+$x = "Hello";
+var_dump(is_numeric($x));
+?>  
+
+</body>
+</html>
+
+<!--文字列と浮動小数点数を整数にキャストするPHP
+  数値を別のデータ型にキャストする必要がある場合があります。
+  （int）、（integer）、またはintval（）関数は、値を整数に変換するためによく使用されます
+ -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+// Cast float to int 
+$x = 23465.768;
+$int_cast = (int)$x;
+echo $int_cast;
+  
+echo "<br>";
+
+// Cast string to int
+$x = "23465.768";
+$int_cast = (int)$x;
+echo $int_cast;
+?>  
+
+</body>
+</html>
+
+<!-- -->
+<!-- -->
+
+

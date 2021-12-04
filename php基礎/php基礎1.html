@@ -216,17 +216,227 @@ echo "<p>Variable x outside function is: $x</p>";
 </body>
 </html>
 
+
+<!-- 関数内で宣言された変数にはローカルスコープがあり
+    その関数内でのみアクセスできます。-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+function myTest() {
+  $x = 5; // local scope
+  echo "<p>Variable x inside function is: $x</p>";
+} 
+myTest();
+
+// using x outside the function will generate an error
+echo "<p>Variable x outside function is: $x</p>";
+?>
+
+</body>
+</html>
+
+<!-- PHPグローバルキーワード
+    globalキーワードは、関数内からグローバル変数にアクセスするために使用されます。
+これを行うglobalには、変数の前（関数内）でキーワードを使用します。
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$x = 5;
+$y = 10;
+
+function myTest() {
+  global $x, $y;
+  $y = $x + $y;
+} 
+
+myTest();  // run function
+echo $y; // output the new value for variable $y
+?>
+
+</body>
+</html>
+
+<!-- 
+    PHPは、すべてのグローバル変数を。という配列に格納し ます。
+    変数の名前を保持します。この配列は関数内からもアクセスでき、
+    グローバル変数を直接更新するために使用できます。$GLOBALS[index]index
+    上記の例は、次のように書き直すことができます。
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$x = 5;
+$y = 10;
+
+function myTest() {
+  $GLOBALS['y'] = $GLOBALS['x'] + $GLOBALS['y'];
+} 
+
+myTest();
+echo $y;
+?>
+
+</body>
+</html>
+
+<!-- PHP静的キーワード
+    通常、関数が完了する/実行されると、その変数はすべて削除されます。
+    ただし、ローカル変数を削除したくない場合があります。さらなる仕事のためにそれが必要です。
+   これを行うには、static最初に変数を宣言するときにキーワードを使用します。
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+function myTest() {
+  static $x = 0;
+  echo $x;
+  $x++;
+}
+
+myTest();
+echo "<br>";
+myTest();
+echo "<br>";
+myTest();
+?> 
+
+</body>
+</html>
+
+
 <!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+echo "<h2>PHP is Fun!</h2>";
+echo "Hello world!<br>";
+echo "I'm about to learn PHP!<br>";
+echo "This ", "string ", "was ", "made ", "with multiple parameters.";
+?> 
+
+</body>
+</html>
+
+<!-- 
+    PHPでは、出力を取得するための2つの基本的な方法があります：echoとprint。
+
+このチュートリアルでは、echo またはprintほとんどすべての例で使用します。したがって、この章には、これら2つの出力ステートメントに関するもう少し情報が含まれています。
+
+PHPのechoおよびprintステートメント
+echoとprint多かれ少なかれ同じです。どちらもデータを画面に出力するために使用されます。
+
+違いはわずかです。echo戻り値はありませんprintが、戻り値は1なので、式で使用できます。echo複数のパラメーターを取ることができますが（そのような使用法はまれですが）、print1つの引数を取ることができます。echoよりわずかに高速ですprint。
+
+PHPのechoステートメント
+echo声明は、または括弧なしで使用できます echoかecho()。
+-->
+<!-- テキストを表示する
+    次の例は、echo コマンドを使用してテキストを出力する方法を示しています
+    （テキストにHTMLマークアップを含めることができることに注意してください）。
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+echo "<h2>PHP is Fun!</h2>";
+echo "Hello world!<br>";
+echo "I'm about to learn PHP!<br>";
+echo "This ", "string ", "was ", "made ", "with multiple parameters.";
+?> 
+
+</body>
+</html>
+
+<!--変数の表示
+    次の例は、echo ステートメントを使用してテキストと変数を出力する方法を示しています。
+ -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$txt1 = "Learn PHP";
+$txt2 = "W3Schools.com";
+$x = 5;
+$y = 4;
+
+echo "<h2>" . $txt1 . "</h2>";
+echo "Study PHP at " . $txt2 . "<br>";
+echo $x + $y;
+?>
+
+</body>
+</html>
+
+<!-- PHPデータ型
+    変数はさまざまなタイプのデータを格納でき、さまざまなデータ型はさまざまなことを実行できます。
+    PHPは、次のデータ型をサポートしています。
+
+    String
+    Integer
+    Float (floating point numbers - also called double)
+    Boolean
+    Array
+    Object
+    NULL
+    Resource
+-->
+<!-- PHP文字列
+    文字列は、「Helloworld！」のような文字のシーケンスです。
+    文字列は、引用符で囲まれた任意のテキストにすることができます。
+    一重引用符または二重引用符を使用できます。
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php 
+$x = "Hello world!";
+$y = 'Hello world!';
+
+echo $x;
+echo "<br>"; 
+echo $y;
+?>
+
+</body>
+</html>
+
+<!--PHP整数
+    整数データ型は、-2,147,483,648から2,147,483,647までの10進数ではありません。
+
+整数の規則：
+
+整数には少なくとも1桁の数字が必要です
+整数には小数点を含めることはできません
+整数は正または負のいずれかになります
+整数は、10進数（基数10）、16進数（基数16）、8進数（基数8）、
+または2進数（基数2）の表記で指定できます。
+次の例では、$ xは整数です。PHPのvar_dump（）関数は、データ型と値を返します。 -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php  
+$x = 5985;
+var_dump($x);
+?>  
+
+</body>
+</html>
+
 <!-- -->
 <!-- -->
 <!-- -->
