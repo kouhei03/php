@@ -1,0 +1,145 @@
+
+<!-- 
+    PHPスクリプトは、ドキュメント内のどこにでも配置できます。
+    PHPスクリプトは、次<?phpで始まり、?>次で終わります 。
+
+<?php
+// PHP code goes here
+?>
+PHPファイルのデフォルトのファイル拡張子は " .php"です。
+PHPファイルには通常、HTMLタグといくつかのPHPスクリプトコードが含まれています。
+
+以下に、組み込みのPHP関数 " echo"を使用してテキスト "Hello World！"を出力するPHPスクリプトを含む単純なPHPファイルの例を示します。Webページ：
+-->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My first PHP page</h1>
+
+<?php
+echo "Hello World!";
+?> 
+
+</body>
+</html>
+
+
+<!-- PHPの大文字と小文字の区別
+    PHPでは、キーワード（例えばif、 else、while、 echo、など）、クラス、
+    関数、およびユーザー定義関数は、大文字と小文字を区別しません。
+    以下の例では、以下の3つのechoステートメントはすべて等しく、正当です。
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+ECHO "Hello World!<br>";
+echo "Hello World!<br>";
+EcHo "Hello World!<br>";
+?> 
+
+</body>
+</html>
+
+<!--最初のステートメントのみが$color変数の値を表示し ます！
+    これは $color、$COLORと、 $coLOR三つの異なる変数として扱われます。 -->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$color = "red";
+echo "My car is " . $color . "<br>";
+echo "My house is " . $COLOR . "<br>";
+echo "My boat is " . $coLOR . "<br>";
+?> 
+
+</body>
+</html>
+
+<!--PHPでのコメント
+    PHPコードのコメントは、プログラムの一部として実行されない行です。
+    その唯一の目的は、コードを見ている誰かが読むことです。
+    コメントは次の目的で使用できます。
+
+    他の人にあなたのコードを理解させる
+    あなたがしたことを思い出してください-ほとんどのプログラマーは、
+    1、2年後に自分の仕事に戻り、彼らがしたことを再考しなければならないことを経験しました。
+    コメントは、コードを書いたときに何を考えていたかを思い出させることができます
+    PHPは、コメントのいくつかの方法をサポートしています。
+ -->
+
+<!-- 単一行コメントの構文-->
+<!DOCTYPE html>
+<html>
+<body>
+ 
+<?php
+// This is a single-line comment
+
+# This is also a single-line comment
+?>
+ 
+</body>
+</html>
+
+
+<!-- 複数行コメントの構文：-->
+<!DOCTYPE html>
+<html>
+<body>
+ 
+<?php
+/*
+This is a multiple-lines comment block
+that spans over multiple
+lines
+*/
+?>
+ 
+</body>
+</html>
+
+<!-- コメントを使用してコードの一部を省略します。-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+// You can also use comments to leave out parts of a code line
+$x = 5 /* + 15 */ + 5;
+echo $x;
+?>
+
+</body>
+</html>
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+
