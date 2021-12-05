@@ -1,0 +1,132 @@
+
+<!--PHPのデフォルトの引数値    
+次の例は、デフォルトのパラメータを使用する方法を示しています。
+引数なしで関数setHeight（）を呼び出すと、デフォルト値が引数として使用されます。
+-->
+
+<?php declare(strict_types=1); // strict requirement ?>
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+function setHeight(int $minheight = 50) {
+  echo "The height is : $minheight <br>";
+}
+
+setHeight(350);
+setHeight();
+setHeight(135);
+setHeight(80);
+?>
+
+</body>
+</html>
+
+
+<!-- PHP関数-戻り値
+    関数が値を返すようにするには、次のreturnステートメントを使用します。
+-->
+<?php declare(strict_types=1); // strict requirement ?>
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+function sum(int $x, int $y) {
+  $z = $x + $y;
+  return $z;
+}
+
+echo "5 + 10 = " . sum(5,10) . "<br>";
+echo "7 + 13 = " . sum(7,13) . "<br>";
+echo "2 + 4 = " . sum(2,4);
+?>
+
+</body>
+</html>
+
+<!--PHPの戻り型の宣言
+PHP 7は、return ステートメントの型宣言もサポートしています。
+関数の引数の型宣言と同様に、厳密な要件を有効にすることで、
+型の不一致時に「致命的なエラー」がスローされます。
+
+関数returnの型を宣言するには、関数を宣言するときに、
+コロン（:）と開き中{括弧（）括弧の直前に型を追加 します。
+
+次の例では、関数の戻り値のタイプを指定します。
+ -->
+
+<!DOCTYPE html>
+<html>
+<body>
+<?php declare(strict_types=1); // strict requirement
+function addNumbers(float $a, float $b) : float {
+  return $a + $b;
+}
+echo addNumbers(1.2, 5.2); 
+?>
+</body>
+</html>
+
+
+<!-- 引数の型とは異なる戻り型を指定できますが、
+    戻りが正しい型であることを確認してください。-->
+<!DOCTYPE html>
+<html>
+<body>
+<?php declare(strict_types=1); // strict requirement
+function addNumbers(float $a, float $b) : int {
+  return (int)($a + $b);
+}
+echo addNumbers(1.2, 5.2); 
+?>
+</body>
+</html>
+
+
+<!--参照による引数の受け渡し
+PHPでは、引数は通常値によって渡されます。つまり、値のコピーが関数で使用され、
+関数に渡された変数は変更できません。
+
+関数の引数が参照によって渡される場合、引数を変更すると、
+渡された変数も変更されます。関数の引数を参照に変換するには、& 演算子を使用します。 -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+function add_five(&$value) {
+  $value += 5;
+}
+
+$num = 2;
+add_five($num);
+echo $num;
+?>
+
+</body>
+</html>
+
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
