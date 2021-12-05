@@ -1,0 +1,315 @@
+
+<!--PHP pi（）関数 
+    このpi()関数は、PIの値を返します。-->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+echo(pi());
+?>
+
+</body>
+</html>
+
+<!--
+    min()そしてmax()関数は、引数のリスト内で最低または
+    最高値を見つけるために使用することができます。
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+echo(min(0, 150, 30, 20, -8, -200) . "<br>");
+echo(max(0, 150, 30, 20, -8, -200));
+?>
+
+</body>
+</html>
+
+<!--PHP abs（）関数
+    このabs()関数は、数値の絶対（正）値を返します
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+echo(abs(-6.7));
+?>
+
+</body>
+</html>
+
+<!--PHP sqrt（）関数
+    このsqrt()関数は、数値の平方根を返します。
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+echo(sqrt(64) . "<br>");
+echo(sqrt(0) . "<br>");
+echo(sqrt(1) . "<br>");
+echo(sqrt(9));
+?>
+
+</body>
+</html>
+
+<!--PHPのround（）関数
+    このround()関数は、浮動小数点数を最も近い整数に丸めます。
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+echo(round(0.60) . "<br>");
+echo(round(0.50) . "<br>");
+echo(round(0.49) . "<br>");
+echo(round(-4.40) . "<br>");
+echo(round(-4.60));
+?>
+
+</body>
+</html>
+
+<!--乱数
+    このrand()関数は乱数を生成します。
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+echo(rand());
+?>
+
+</body>
+</html>
+
+<!--
+    乱数をより細かく制御するために、オプションのminパラメーターと
+    maxパラメーターを追加して、返される最小の整数と最大の整数を指定できます。
+たとえば、10から100（両端を含む）のランダムな整数が必要な場合は、
+次を使用します rand(10, 100)。
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+echo(rand(10, 100));
+?>
+
+</body>
+</html>
+
+<!--PHP定数
+    定数は、単純な値の識別子（名前）です。スクリプト中に値を変更することはできません。
+有効な定数名は、文字またはアンダースコアで始まります（定数名の前に$記号はありません）。
+注：変数とは異なり、定数はスクリプト全体で自動的にグローバルになります。
+-->
+<!--PHP定数を作成する
+    定数を作成するには、define()関数を使用します。
+
+構文
+define(name, value, case-insensitive)
+パラメーター：
+
+name：定数の名前を指定します
+value：定数の値を指定します
+大文字と小文字を区別しない：
+定数名で大文字と小文字を区別しないかどうかを指定します。デフォルトはfalseです
+-->
+<!--大文字と小文字を区別する名前で定数を作成します。-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+// case-sensitive constant name
+define("GREETING", "Welcome to W3Schools.com!");
+echo GREETING;
+?> 
+
+</body>
+</html>
+
+<!--大文字と小文字を区別しない名前で定数を作成します。-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+// case-insensitive constant name
+define("GREETING", "Welcome to W3Schools.com!", true);
+echo greeting;
+?> 
+
+</body>
+</html>
+
+<!--PHP定数配列
+PHP7では、define()関数を使用して配列定数を作成できます。-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+define("cars", [
+  "Alfa Romeo",
+  "BMW",
+  "Toyota"
+]);
+echo cars[1];
+?> 
+
+</body>
+</html>
+
+<!--定数はグローバルです
+定数は自動的にグローバルになり、スクリプト全体で使用できます。-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+define("GREETING", "Welcome to W3Schools.com!");
+
+function myTest() {
+  echo GREETING;
+}
+ 
+myTest();
+?> 
+
+</body>
+</html>
+
+<!--PHPの条件文
+    コードを書くとき、さまざまな条件に対してさまざまなアクションを実行したいことがよくあります。これを行うには、コードで条件ステートメントを使用できます。
+
+PHPには、次の条件文があります。
+
+if ステートメント-1つの条件が真の場合、コードを実行します
+if...else ステートメント-条件が真の場合はいくつかのコードを実行し、その条件が偽の場合は別のコードを実行します
+if...elseif...else ステートメント-2つ以上の条件に対して異なるコードを実行します
+switch ステートメント-実行するコードの多くのブロックの1つを選択します
+-->
+
+<!--PHP-ifステートメント
+    if1つの条件が真であれば文はいくつかのコードを実行します。
+
+構文
+if (condition) {
+  code to be executed if condition is true;
+}
+-->
+
+<!--出力「良い一日を！」現在の時刻（HOUR）が20未満の場合：-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$t = date("Z");
+
+if ($t < "20") {
+  echo "Have a good day!";
+}
+?>
+ 
+</body>
+</html>
+
+<!--PHP-if ... elseステートメント
+このif...elseステートメントは、条件がtrueの場合にいくつかのコードを実行し、
+その条件がfalseの場合に別のコードを実行します。
+
+構文
+if (condition) {
+  code to be executed if condition is true;
+} else {
+  code to be executed if condition is false;
+}-->
+
+<!--出力「良い一日を！」現在の時間が20未満の場合は、「おやすみなさい！」それ以外は：-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$t = date("H");
+
+if ($t < "20") {
+  echo "Have a good day!";
+} else {
+  echo "Have a good night!";
+}
+?>
+ 
+</body>
+</html>
+
+
+<!--PHP-if ... elseif ... elseステートメント
+    if...elseif...else文は、二つ以上の条件のために異なるコードを実行します。
+
+    構文
+    if (condition) {
+    code to be executed if this condition is true;
+    } elseif (condition) {
+    code to be executed if first condition is false and this condition is true;
+    } else {
+    code to be executed if all conditions are false;
+    }
+-->
+<!--出力「おはようございます！」現在の時刻が10未満の場合は、
+    「良い一日を！」現在の時刻が20未満の場合。それ以外の場合は、
+    「おやすみなさい！」と出力されます。
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$t = date("H");
+echo "<p>The hour (of the server) is " . $t; 
+echo ", and will give the following message:</p>";
+
+if ($t < "10") {
+  echo "Have a good morning!";
+} elseif ($t < "20") {
+  echo "Have a good day!";
+} else {
+  echo "Have a good night!";
+}
+?>
+ 
+</body>
+</html>
+
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+

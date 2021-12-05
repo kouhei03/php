@@ -1,0 +1,307 @@
+
+<!-- PHP演算子-->
+
+<!-- PHP演算子
+演算子は、変数と値の操作を実行するために使用されます。
+
+PHPは、演算子を次のグループに分けています。
+
+    算術演算子
+    代入演算子
+    比較演算子
+    インクリメント/デクリメント演算子
+    論理演算子
+    文字列演算子
+    配列演算子
+    条件付き割り当て演算子
+-->
+<!--PHP算術演算子
+PHPの算術演算子は、数値とともに使用され、
+加算、減算、乗算などの一般的な算術演算を実行します。 -->
+
+<!-- Addition-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$x = 10;  
+$y = 6;
+
+echo $x + $y;
+?>  
+
+</body>
+</html>
+
+<!--Subtraction -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$x = 10;  
+$y = 6;
+
+echo $x - $y;
+?>  
+
+</body>
+</html>
+
+<!--Multiplication -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$x = 10;  
+$y = 6;
+
+echo $x * $y;
+?>  
+
+</body>
+</html>
+
+<!-- Division-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$x = 10;  
+$y = 6;
+
+echo $x / $y;
+?>  
+
+</body>
+</html>
+
+<!-- Modulus Remainder of $x divided by $y-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$x = 10;  
+$y = 6;
+
+echo $x % $y;
+?>  
+
+</body>
+</html>
+
+<!--	Exponentiation	$x ** $y	
+    Result of raising $x to the $y'th power -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$x = 10;  
+$y = 3;
+
+echo $x ** $y;
+?>  
+
+</body>
+</html>
+
+<!-- PHP代入演算子
+PHP代入演算子は、変数に値を書き込むために数値とともに使用されます。
+PHPの基本的な代入演算子は「=」です。これは、左側のオペランドが
+右側の代入式の値に設定されることを意味します。-->
+
+<!-- x = y	x = y	
+    The left operand gets set to the value of the expression on the right-->
+ <!DOCTYPE html>
+    <html>
+    <body>
+
+    <?php
+    $x = 10;  
+    echo $x;
+    ?>  
+
+    </body>
+ </html>
+
+<!-- x += y	x = x + y	Addition-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$x = 20;  
+$x += 100;
+
+echo $x;
+?>  
+
+</body>
+</html>
+
+<!--x -= y	x = x - y	Subtraction -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$x = 50;
+$x -= 30;
+
+echo $x;
+?>  
+
+</body>
+</html>
+
+<!--x *= y	x = x * y	Multiplication -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$x = 5;
+$x *= 6;
+
+echo $x;
+?>  
+
+</body>
+</html>
+
+<!--x /= y	x = x / y	Division -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$x = 10;
+$x /= 5;
+
+echo $x;
+?>  
+
+</body>
+</html>
+
+<!-- x %= y	x = x % y	Modulus-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$x = 15;
+$x %= 4;
+
+echo $x;
+?>  
+
+</body>
+</html>
+
+<!--PHP比較演算子
+PHP比較演算子は、2つの値（数値または文字列）を比較するために使用されます。 -->
+
+<!--  ==	Equal	$x == $y	
+    Returns true if $x is equal to $y -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$x = 100;  
+$y = "100";
+
+var_dump($x == $y); // returns true because values are equal
+?>  
+
+</body>
+</html>
+
+<!-- ===	Identical	$x === $y	R
+    eturns true if $x is equal to $y, and they are of the same type-->
+<!DOCTYPE html>
+    <html>
+    <body>
+    
+    <?php
+    $x = 100;  
+    $y = "100";
+    
+    var_dump($x === $y); // returns false because types are not equal
+    ?>  
+    
+    </body>
+</html>
+        
+<!-- !=	Not equal	$x != $y
+    	Returns true if $x is not equal to $y-->
+    <!DOCTYPE html>
+        <html>
+        <body>
+        
+        <?php
+        $x = 100;  
+        $y = "100";
+        
+        var_dump($x != $y); // returns false because values are equal
+        ?>  
+        
+        </body>
+    </html>
+                
+<!--<>	Not equal	$x <> $y	
+    Returns true if $x is not equal to $y -->
+ <!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$x = 100;  
+$y = "100";
+
+var_dump($x <> $y); // returns false because values are equal
+?>  
+
+</body>
+</html>
+
+   
+<!--!==	Not identical	$x !== $y	
+    Returns true if $x is not equal to $y, 
+        or they are not of the same type -->
+ <!DOCTYPE html>
+        <html>
+        <body>
+        
+        <?php
+        $x = 100;  
+        $y = "100";
+        
+        var_dump($x !== $y); // returns true because types are not equal
+        ?>  
+        
+    </body>
+</html>
+        
+<!-- >	Greater than	$x > $y	
+    Returns true if $x is greater than $y -->
+    <!DOCTYPE html>
+    <html>
+    <body>
+    
+    <?php
+    $x = 100;
+    $y = 50;
+    
+    var_dump($x > $y); // returns true because $x is greater than $y
+    ?>  
+    
+    </body>
+    </html>
+       
