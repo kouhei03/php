@@ -1,0 +1,252 @@
+
+<!--PHPブレイク
+breakこのチュートリアルの前の章で使用されたステートメントはすでに見ました。
+これは、switchステートメントから「ジャンプアウト」するために使用されました。
+このbreakステートメントを使用して、ループからジャンプすることもできます。
+この例では、xが4に等しい 場合、ループからジャンプします。
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php  
+for ($x = 0; $x < 10; $x++) {
+  if ($x == 4) {
+    break;
+  }
+  echo "The number is: $x <br>";
+}
+?>
+
+</body>
+</html>
+
+
+<!--PHP続行
+continue文の区切り（ループで）一回の反復、指定された条件が発生し、
+ループの次の繰り返しを継続した場合でも。
+
+この例では、4の値をスキップします。-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php  
+for ($x = 0; $x < 10; $x++) {
+  if ($x == 4) {
+    continue;
+  }
+  echo "The number is: $x <br>";
+}
+?>
+
+</body>
+</html>
+
+<!--中断してWhileループで続行
+また、使用することができますbreakし、continue中whileのループ：-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php  
+$x = 0;
+ 
+while($x < 10) {
+  if ($x == 4) {
+    break;
+  }
+  echo "The number is: $x <br>";
+  $x++;
+} 
+?>  
+
+</body>
+</html>
+
+<!--例を続ける-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php  
+$x = 0;
+ 
+while($x < 10) {
+  if ($x == 4) {
+    $x++;
+    continue;
+  }
+  echo "The number is: $x <br>";
+  $x++;
+} 
+?>  
+
+</body>
+</html>
+
+
+
+<!--PHP組み込み関数
+PHPには、特定のタスクを実行するためにスクリプト内から
+直接呼び出すことができる1000を超える組み込み関数があります。
+
+PHP組み込み関数の完全な概要については、PHPリファレンスを確認してください 。
+
+PHPユーザー定義関数
+組み込みのPHP関数に加えて、独自の関数を作成することもできます。
+
+関数は、プログラムで繰り返し使用できるステートメントのブロックです。
+ページの読み込み時に関数が自動的に実行されることはありません。
+関数は、関数の呼び出しによって実行されます。
+PHPでユーザー定義関数を作成する
+ユーザー定義の関数宣言は、次の単語で始まりますfunction。
+
+構文
+function functionName() {
+  code to be executed;
+}
+-->
+
+<!--以下の例では、「writeMsg（）」という名前の関数を作成します。
+    開始中括弧（{）は関数コードの開始を示し、終了中括弧（}）は関数の終了を示します。
+    この関数は「Helloworld！」を出力します。関数を呼び出すには、
+    名前の後に角かっこ（）を付けてください。
+
+例-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+function writeMsg() {
+  echo "Hello world!";
+}
+
+writeMsg();
+?>
+
+</body>
+</html>
+
+<!--PHP関数の引数
+引数を介して関数に情報を渡すことができます。引数は変数のようなものです。
+
+引数は、関数名の後の括弧内に指定されます。引数はコンマで区切るだけで、いくつでも追加できます。
+
+次の例には、1つの引数（$ fname）を持つ関数があります。
+familyName（）関数が呼び出されると、名前（Janiなど）も渡されます。
+この名前は関数内で使用され、いくつかの異なる名が出力されますが、名前は同じです。
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+function familyName($fname) {
+  echo "$fname Refsnes.<br>";
+}
+
+familyName("Jani");
+familyName("Hege");
+familyName("Stale");
+familyName("Kai Jim");
+familyName("Borge");
+?>
+
+</body>
+</html>
+
+<!--次の例には、2つの引数（$ fnameと$ year）を持つ関数があります。-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+function familyName($fname, $year) {
+  echo "$fname Refsnes. Born in $year <br>";
+}
+
+familyName("Hege","1975");
+familyName("Stale","1978");
+familyName("Kai Jim","1983");
+?>
+
+</body>
+</html>
+
+<!--PHPは緩く型付けされた言語です
+上記の例では、変数がどのデータ型であるかをPHPに通知する必要がないことに注意してください。
+
+PHPは、その値に応じて、データ型を変数に自動的に関連付けます。
+データ型は厳密な意味で設定されていないため、エラーを発生させることなく、
+整数に文字列を追加するなどのことができます。
+
+PHP 7では、型宣言が追加されました。これにより、関数を宣言するときに
+予期されるデータ型を指定するオプションが提供され、strict 宣言を追加することで、
+データ型が一致しない場合に「致命的なエラー」がスローされます。
+-->
+
+<!--
+    次の例では、以下を使用せずに、数値と文字列の両方を関数に送信しようとしていますstrict。
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+function addNumbers(int $a, int $b) {
+  return $a + $b;
+}
+echo addNumbers(5, "5 days"); 
+// since strict is NOT enabled "5 days" is changed to int(5), and it will return 10
+?>
+
+
+</body>
+</html>
+
+<!--
+    指定するstrictには、を設定する必要がありますdeclare(strict_types=1);。
+    これは、PHPファイルの最初の行にある必要があります。
+
+次の例では、数値と文字列の両方を関数に送信しようとしていますが、
+ここにstrict 宣言を追加しました。
+-->
+<!--下記コードはエラーが出ます-->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php declare(strict_types=1); // strict requirement
+
+function addNumbers(int $a, int $b) {
+return $a + $b;
+}
+echo addNumbers(5, "5 days"); 
+// since strict is enabled and "5 days" is not an integer, an error will be thrown
+?>
+
+</body>
+</html>
+
+<!---->
+
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->
+<!---->

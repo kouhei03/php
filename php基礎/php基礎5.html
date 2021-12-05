@@ -1,0 +1,262 @@
+<!-- -->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$favcolor = "red";
+
+switch ($favcolor) {
+  case "red":
+    echo "Your favorite color is red!";
+    break;
+  case "blue":
+    echo "Your favorite color is blue!";
+    break;
+  case "green":
+    echo "Your favorite color is green!";
+    break;
+  default:
+    echo "Your favorite color is neither red, blue, nor green!";
+}
+?>
+ 
+</body>
+</html>
+
+<!--PHPのswitchステートメント
+switchステートメントを使用して、実行するコードの多くのブロックの1つを選択します。
+
+構文
+switch (n) {
+  case label1:
+    code to be executed if n=label1;
+    break;
+  case label2:
+    code to be executed if n=label2;
+    break;
+  case label3:
+    code to be executed if n=label3;
+    break;
+    ...
+  default:
+    code to be executed if n is different from all labels;
+}
+仕組みは次のとおりです。最初に、1回評価される単一の式n（ほとんどの場合変数）があります。
+次に、式の値が構造内の各ケースの値と比較されます。一致するものがある場合、
+そのケースに関連付けられたコードのブロックが実行されます。breakコードが
+次のケースに自動的に実行されないようにするために使用します。
+default一致するものが見つからない場合は、ステートメントが使用されます。 
+-->
+
+<!--PHPループ
+    多くの場合、コードを作成するときは、同じコードブロックを特定の回数
+    繰り返し実行する必要があります。したがって、スクリプトにほぼ等しいコード行を
+    いくつか追加する代わりに、ループを使用できます。
+
+ループは、特定の条件が真である限り、同じコードブロックを何度も実行するために使用されます。
+PHPには、次のループタイプがあります。
+
+while -指定された条件が真である限り、コードのブロックをループします
+do...while -コードのブロックを1回ループし、指定された条件が真である限りループを繰り返します
+for -コードのブロックを指定された回数ループします
+foreach -配列内の各要素のコードブロックをループします
+次の章では、各ループタイプについて説明し、例を示します。
+ -->
+
+
+<!-- PHPのwhileループ
+    hileループが長い指定された条件が真である限り、コードのブロックを実行します。
+
+構文
+while (condition is true) {
+  code to be executed;
+}
+-->
+
+<!--例の説明
+$ x = 1; -ループカウンター（$ x）を初期化し、開始値を1に設定します
+$ x <= 5- $ xが5以下である限り、ループを続行します
+$ x ++; -反復ごとにループカウンター値を1ずつ増やします
+この例では、100 x10にカウントされます。 -->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php  
+$x = 1;
+ 
+while($x <= 5) {
+  echo "The number is: $x <br>";
+  $x++;
+} 
+?>  
+
+</body>
+</html>
+
+<!-- 例の説明
+$ x = 0; -ループカウンター（$ x）を初期化し、開始値を0に設定します
+$ x <= 100- $ xが100以下である限り、ループを続行します
+$ x + = 10; -反復ごとにループカウンター値を10ずつ増やします-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php  
+$x = 0;
+ 
+while($x <= 100) {
+  echo "The number is: $x <br>";
+  $x+=10;
+}
+?>  
+
+</body>
+</html>
+
+<!-- PHPは... whileループ
+do...whileそれは、その後の状態をチェックし、指定された条件が
+trueの間ループを繰り返すことになります、一度ループは常にコードのブロックを実行します。
+
+構文
+do {
+  code to be executed;
+} while (condition is true);
+-->
+
+<!--以下の例では、最初に変数$ xを1（$ x = 1）に設定します。
+    次に、do whileループが出力を書き込み、変数$ xを1でインクリメントします。
+    次に、条件がチェックされ（$ xが5以下ですか？）、
+    ループは次のように実行され続けます。 $ xが5以下： 
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php 
+$x = 1;
+
+do {
+  echo "The number is: $x <br>";
+  $x++;
+} while ($x <= 5);
+?>
+
+</body>
+</html>
+
+<!--この例では、$ x変数を6に設定し、ループを実行して から、条件をチェックします。 -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php 
+$x = 6;
+
+do {
+  echo "The number is: $x <br>";
+  $x++;
+} while ($x <= 5);
+?>
+
+</body>
+</html>
+
+<!--PHPforループ
+forスクリプトが実行すべき回数を事前に知っていたときにループが使用されています。
+
+構文
+for (init counter; test counter; increment counter) {
+  code to be executed for each iteration;
+}
+パラメーター：
+
+init counter：ループカウンター値を初期化します
+テストカウンター：ループの反復ごとに評価されます。
+TRUEと評価された場合、ループは続行されます。FALSEと評価された場合、ループは終了します。
+インクリメントカウンタ：ループカウンタ値を増やします -->
+
+<!--次の例は、0から10までの数字を表示します -->
+
+<!--$ x = 0; -ループカウンター（$ x）を初期化し、開始値を0に設定します
+$ x <= 10; -$ xが10以下である限り、ループを続行します
+$ x ++-反復ごとにループカウンター値を1ずつ増やします
+この例では、100 x10にカウントされます。
+ -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php  
+for ($x = 0; $x <= 10; $x++) {
+  echo "The number is: $x <br>";
+}
+?>  
+
+</body>
+</html>
+
+
+<!--例の説明
+$ x = 0; -ループカウンター（$ x）を初期化し、開始値を0に設定します
+$ x <= 100; -$ xが100以下である限り、ループを続行します
+$ x + = 10-反復ごとにループカウンター値を10ずつ増やします
+ -->
+ <!DOCTYPE html>
+<html>
+<body>
+
+<?php  
+for ($x = 0; $x <= 100; $x+=10) {
+  echo "The number is: $x <br>";
+}
+?>  
+
+</body>
+</html>
+
+<!--PHPforeachループ
+foreachループは、アレイ上で動作し、アレイ内の各キー/値のペアをループに使用されます。
+
+構文
+foreach ($array as $value) {
+  code to be executed;
+}
+ループが繰り返されるたびに、現在の配列要素の値が$ valueに割り当てられ、
+最後の配列要素に到達するまで配列ポインターが1つ移動します。 -->
+
+<!-- 次の例では、指定された配列（$ Colors）の値を出力します。-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php  
+$colors = array("red", "green", "blue", "yellow"); 
+
+foreach ($colors as $value) {
+  echo "$value <br>";
+}
+?>  
+
+</body>
+</html>
+
+<!--次の例では、指定された配列（$ age）のキーと値の両方を出力します。 -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$age = array("Peter"=>"35", "Ben"=>"37", "Joe"=>"43");
+
+foreach($age as $x => $val) {
+  echo "$x = $val<br>";
+}
+?>
+
+</body>
+</html>
+
