@@ -1,0 +1,155 @@
+<!-- -->
+
+<!-- PHP $ GLOBALS
+    $ GLOBALSは、PHPスクリプトのどこからでも（関数またはメソッド内からも）
+    グローバル変数にアクセスするために使用されるPHPスーパーグローバル変数です。
+    PHPは、すべてのグローバル変数を$ GLOBALS [ index ]という配列に格納します。
+    インデックスは、変数の名前を保持します。
+
+    以下の例は、スーパーグローバル変数$ GLOBALSの使用方法を示しています。
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php 
+$x = 75;
+$y = 25; 
+
+function addition() {
+  $GLOBALS['z'] = $GLOBALS['x'] + $GLOBALS['y'];
+}
+
+addition();
+echo $z;
+?>
+
+</body>
+</html>
+
+<!--PHP $ _SERVER
+$ _SERVERは、ヘッダー、パス、およびスクリプトの場所に関する情報を保持する
+PHPスーパーグローバル変数です。
+
+以下の例は、$ _ SERVERのいくつかの要素を使用する方法を示しています。 -->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+echo $_SERVER['PHP_SELF'];
+echo "<br>";
+echo $_SERVER['SERVER_NAME'];
+echo "<br>";
+echo $_SERVER['HTTP_HOST'];
+echo "<br>";
+echo $_SERVER['HTTP_REFERER'];
+echo "<br>";
+echo $_SERVER['HTTP_USER_AGENT'];
+echo "<br>";
+echo $_SERVER['SCRIPT_NAME'];
+?>
+
+</body>
+</html>
+<!-- 
+    PHP $ _REQUESTは、HTMLフォームの送信後にデータを収集するために使用される
+    PHPスーパーグローバル変数です。
+
+次の例は、入力フィールドと送信ボタンを備えたフォームを示しています。
+ユーザーが「送信」をクリックしてデータを送信すると、フォームデータが<form>タグの
+    action属性で指定されたファイルに送信されます。
+    この例では、フォームデータを処理するためにこのファイル自体を指します。
+    別のPHPファイルを使用してフォームデータを処理する場合は、
+    それを選択したファイル名に置き換えます。次に、スーパーグローバル変数$ _REQUESTを使用して
+    、入力フィールドの値を収集できます。
+-->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+  Name: <input type="text" name="fname">
+  <input type="submit">
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // collect value of input field
+    $name = htmlspecialchars($_REQUEST['fname']);
+    if (empty($name)) {
+        echo "Name is empty";
+    } else {
+        echo $name;
+    }
+}
+?>
+
+</body>
+</html>
+
+<!-- PHP $ _POST
+    PHP $ _POSTは、method = "post"を使用してHTMLフォームを送信した後、
+    フォームデータを収集するために使用されるPHPスーパーグローバル変数です。
+    $ _POSTは、変数を渡すためにも広く使用されています。
+
+    次の例は、入力フィールドと送信ボタンを備えたフォームを示しています。
+    ユーザーが「送信」をクリックしてデータを送信すると、フォームデータが
+    <form>タグのaction属性で指定されたファイルに送信されます。
+    この例では、フォームデータを処理するためにファイル自体を指します。
+    別のPHPファイルを使用してフォームデータを処理する場合は、
+    それを選択したファイル名に置き換えます。次に、スーパーグローバル変数$ _POSTを使用して、
+    入力フィールドの値を収集できます。
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+  Name: <input type="text" name="fname">
+  <input type="submit">
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // collect value of input field
+    $name = $_POST['fname'];
+    if (empty($name)) {
+        echo "Name is empty";
+    } else {
+        echo $name;
+    }
+}
+?>
+
+</body>
+</html>
+
+<!-- -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<a href="test_get.php?subject=PHP&web=W3schools.com">Test $GET</a>
+
+</body>
+</html>
+
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
