@@ -108,25 +108,306 @@ echo $num;
 </body>
 </html>
 
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
+<!-- PHP配列 配列は、複数の値を1つの変数に格納します。-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$cars = array("Volvo", "BMW", "Toyota"); 
+echo "I like " . $cars[0] . ", " . $cars[1] . " and " . $cars[2] . ".";
+?>
+
+</body>
+</html>
+
+<!--PHPで配列を作成する
+    PHPでは、このarray()関数を使用して配列を作成します。
+
+  array();
+  PHPには、次の3種類の配列があります。
+
+  インデックス付き配列-数値インデックス付きの配列
+  連想配列-名前付きキーを持つ配列
+  多次元配列-1つ以上の配列を含む配列
+ -->
+
+<!-- 配列の長さを取得する-count（）関数
+  このcount()関数は、配列の長さ（要素の数）を返すために使用されます。
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$cars = array("Volvo", "BMW", "Toyota");
+echo count($cars);
+?>
+
+</body>
+</html>
+
+<!-- PHPインデックス付き配列
+インデックス付き配列を作成するには、次の2つの方法があります。
+次のように、インデックスを自動的に割り当てることができます（インデックスは常に0から始まります）。
+
+$cars = array("Volvo", "BMW", "Toyota");
+または、インデックスを手動で割り当てることができます。
+
+$cars[0] = "Volvo";
+$cars[1] = "BMW";
+$cars[2] = "Toyota";
+次の例では、$ carsという名前のインデックス付き配列を作成し、
+それに3つの要素を割り当ててから、配列値を含むテキストを出力します。
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$cars = array("Volvo", "BMW", "Toyota"); 
+echo "I like " . $cars[0] . ", " . $cars[1] . " and " . $cars[2] . ".";
+?>
+
+</body>
+</html>
+
+
+<!-- インデックス付き配列をループする
+    インデックス付き配列のすべての値をループして出力するにはfor、次のようなループを使用できます。
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$cars = array("Volvo", "BMW", "Toyota");
+$arrlength = count($cars);
+
+for($x = 0; $x < $arrlength; $x++) {
+  echo $cars[$x];
+  echo "<br>";
+}
+?>
+
+</body>
+</html>
+
+<!-- PHP連想配列
+  連想配列は、割り当てられた名前付きキーを使用する配列です。
+
+連想配列を作成するには、次の2つの方法があります。 
+
+$age = array("Peter"=>"35", "Ben"=>"37", "Joe"=>"43");
+また：
+
+$age['Peter'] = "35";
+$age['Ben'] = "37";
+$age['Joe'] = "43";
+名前付きキーは、スクリプトで使用できます。
+-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$age = array("Peter"=>"35", "Ben"=>"37", "Joe"=>"43");
+echo "Peter is " . $age['Peter'] . " years old.";
+?>
+
+</body>
+</html>
+
+<!-- 連想配列をループする
+連想配列のすべての値をループして出力するにはforeach、次のようなループを使用できます。-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$age = array("Peter"=>"35", "Ben"=>"37", "Joe"=>"43");
+
+foreach($age as $x => $x_value) {
+  echo "Key=" . $x . ", Value=" . $x_value;
+  echo "<br>";
+}
+?>
+
+</body>
+</html>
+
+<!--PHP-2次元配列 -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$cars = array (
+  array("Volvo",22,18),
+  array("BMW",15,13),
+  array("Saab",5,2),
+  array("Land Rover",17,15)
+);
+  
+echo $cars[0][0].": In stock: ".$cars[0][1].", sold: ".$cars[0][2].".<br>";
+echo $cars[1][0].": In stock: ".$cars[1][1].", sold: ".$cars[1][2].".<br>";
+echo $cars[2][0].": In stock: ".$cars[2][1].", sold: ".$cars[2][2].".<br>";
+echo $cars[3][0].": In stock: ".$cars[3][1].", sold: ".$cars[3][2].".<br>";
+?>
+
+</body>
+</html>
+
+<!--for別のループ内にforループを配置して、$ cars配列の要素を取得することもできます
+  （2つのインデックスを指す必要があります）。 -->
+  <!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$cars = array (
+  array("Volvo",22,18),
+  array("BMW",15,13),
+  array("Saab",5,2),
+  array("Land Rover",17,15)
+);
+    
+for ($row = 0; $row < 4; $row++) {
+  echo "<p><b>Row number $row</b></p>";
+  echo "<ul>";
+  for ($col = 0; $col < 3; $col++) {
+    echo "<li>".$cars[$row][$col]."</li>";
+  }
+  echo "</ul>";
+}
+?>
+
+</body>
+</html>
+
+<!-- PHP-配列のソート関数
+  この章では、次のPHP配列ソート関数について説明します。
+
+sort() -配列を昇順で並べ替えます
+rsort() -配列を降順で並べ替えます
+asort() -値に従って、連想配列を昇順で並べ替えます
+ksort() -キーに従って、連想配列を昇順で並べ替えます
+arsort() -値に従って、連想配列を降順で並べ替えます
+krsort() -キーに従って、連想配列を降順で並べ替えます
+-->
+<!-- 配列を昇順で並べ替える--sort（）
+次の例では、$ cars配列の要素をアルファベットの昇順で並べ替えています。-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$cars = array("Volvo", "BMW", "Toyota");
+sort($cars);
+
+$clength = count($cars);
+for($x = 0; $x < $clength; $x++) {
+  echo $cars[$x];
+  echo "<br>";
+}
+?>
+
+</body>
+</html>
+
+<!-- 次の例では、$ numbers配列の要素を番号の昇順で並べ替えています。-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$numbers = array(4, 6, 2, 22, 11);
+sort($numbers);
+
+$arrlength = count($numbers);
+for($x = 0; $x < $arrlength; $x++) {
+  echo $numbers[$x];
+  echo "<br>";
+}
+?>
+
+</body>
+</html>
+
+<!-- 配列を降順で並べ替える--rsort（）
+次の例では、$ cars配列の要素をアルファベットの降順で並べ替えています。-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$cars = array("Volvo", "BMW", "Toyota");
+rsort($cars);
+
+$clength = count($cars);
+for($x = 0; $x < $clength; $x++) {
+  echo $cars[$x];
+  echo "<br>";
+}
+?>
+
+</body>
+</html>
+
+<!--配列の並べ替え（昇順）、値による-asort（）
+次の例では、値に従って連想配列を昇順で並べ替えます。-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$age = array("Peter"=>"35", "Ben"=>"37", "Joe"=>"43");
+asort($age);
+
+foreach($age as $x => $x_value) {
+  echo "Key=" . $x . ", Value=" . $x_value;
+  echo "<br>";
+}
+?>
+
+</body>
+</html>
+
+<!--配列の並べ替え（降順）、値による-arsort（）
+次の例では、値に従って連想配列を降順で並べ替えます。 -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$age = array("Peter"=>"35", "Ben"=>"37", "Joe"=>"43");
+arsort($age);
+
+foreach($age as $x => $x_value) {
+  echo "Key=" . $x . ", Value=" . $x_value;
+  echo "<br>";
+}
+?>
+
+</body>
+</html>
+
+<!--キーに従って配列をソート（降順）-krsort（）
+次の例では、キーに従って連想配列を降順で並べ替えます。 -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$age = array("Peter"=>"35", "Ben"=>"37", "Joe"=>"43");
+krsort($age);
+
+foreach($age as $x => $x_value) {
+  echo "Key=" . $x . ", Value=" . $x_value;
+  echo "<br>";
+}
+?>
+
+</body>
+</html>
+
